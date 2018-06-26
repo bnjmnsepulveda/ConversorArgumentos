@@ -15,7 +15,7 @@ public class ArgumentosHelper {
      * Recibe un Array de String que representan una lista de argumentos con el 
      * formato NombrePropiedad=Valor e instancia 
      * un objeto POJO que contenga como variables de clase el mismo nombre 
-     * que cualquiera de los argumentos recibidos.
+     * de los argumentos recibidos.
      * @param <E> Tipo generico de clase.
      * @param args Array de String con los argumentos a setear, deben tener el formato NombrePropiedad=Valor.
      * @param clase clase a instanciar con los valores de argumentos aceptados.
@@ -102,6 +102,24 @@ public class ArgumentosHelper {
                 System.out.println("parametro: "+mt.getName().substring(3) + "=");
             }
         }
+        System.out.println();
+    }
+    
+    /**
+     * Muestra los atributos y valores asociados a la instancia de clase entregada.
+     * @param <E>
+     * @param instance 
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException 
+     */
+    public static <E> void showAttributes(E instance) throws IllegalArgumentException, IllegalAccessException {
+        Class clase = instance.getClass();
+        System.out.println("---- objeto clave valor ----");
+        Field[] fs = clase.getDeclaredFields();
+        for (Field field : fs) {
+            field.setAccessible(true);
+            System.out.println("atributo:" + field.getName() + "=" + field.get(instance));
+        }        
         System.out.println();
     }
 }

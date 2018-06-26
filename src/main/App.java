@@ -22,6 +22,7 @@ public class App {
             ArgumentosHelper.showAvalaibleParams(Argumentos.class);
             Argumentos a = ArgumentosHelper.proccessArgs(args, Argumentos.class);
             System.out.println("ARGUMENTOS GENERIC = " + a);
+            ArgumentosHelper.showAttributes(a);
         } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace(System.err);
         }
