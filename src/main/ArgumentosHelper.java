@@ -71,6 +71,10 @@ public class ArgumentosHelper {
                         case "string":
                             field.set(configuracion, valorArg);
                             break;
+                        case "boolean":
+                            boolean valorBoolean = Boolean.parseBoolean(valorArg.trim());
+                            field.set(configuracion,valorBoolean);
+                            break;
                         case "date":
                             throw new UnsupportedOperationException("Conversion a java.util.Date no soportada");
                         default:
